@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SimpleArticleComponent } from '../../components/simple-article.component';
-import { AboutComponent } from '../../components/about.component';
-import { LoginComponent } from '../../components/login.component';
-import { RegisterComponent } from '../../components/register.component';
-import { SearchComponent } from '../../components/search.component';
+import { SimpleArticleComponent } from '../../simple-article/simple-article.component';
+import { AboutComponent } from '../../about/about.component';
+import { LoginComponent } from '../../login/login.component';
+import { RegisterComponent } from '../../register/register.component';
+import { SearchComponent } from '../../search/search.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: SimpleArticleComponent },

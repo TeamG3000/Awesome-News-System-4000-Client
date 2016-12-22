@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector: 'ans-app',
-	templateUrl: '../templates/home.component.html',
+	templateUrl: './app.component.html',
 	styles: [
 		`ul {
 			list-style-type: none;
 		}`
 	]
 })
-export class HomeComponent {
+export class AppComponent {
 	pageTitle: String = 'Awesome News System';
 }

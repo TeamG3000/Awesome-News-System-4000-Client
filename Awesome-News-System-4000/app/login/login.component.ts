@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-	template: `<div> About component </div>`
+	templateUrl: './login.component.html'
 })
-export class AboutComponent {
+export class LoginComponent {
 	pageTitle: String = 'Awesome News System';
 }
