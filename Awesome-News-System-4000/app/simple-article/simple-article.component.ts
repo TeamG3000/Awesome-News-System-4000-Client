@@ -9,16 +9,16 @@ import { Headers, Http } from '@angular/http';
 })
 export class SimpleArticleComponent implements OnInit {
 	pageTitle: String = 'Awesome News System';
-	simpleArticles: SimpleArtcileService;
 	articles: any[];
-	constructor(private tosho: SimpleArtcileService) {}
+	constructor(private simleArticleService: SimpleArtcileService) {}
 
 	getArticles() {
         this.articles = [];
-        return this.tosho.getArticles()
+        return this.simleArticleService.getArticles()
             .subscribe(
             articles => {
                 this.articles = articles;
+				console.log(this.articles);
             },
             err => console.error(err));
     }

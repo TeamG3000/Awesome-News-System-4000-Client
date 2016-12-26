@@ -1,6 +1,12 @@
-<div>
-    Simple article componentasdasdasd
-    <ul>
-        <li *ngFor="let article of articles.simpleArticles">{{article}}</li>
-    </ul>
+<div *ngFor="let article of articles.simpleArticles">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <img class="img-responsive" src="{{article.imageUrl}}" alt="image">
+            <h2>
+                <a href="/article-details/{{article._id}}">{{article.title}}</a>
+            </h2>
+        </div>
+        <div class="panel-footer">published at {{article.publishedAt | date:'medium'}} by <a href="#">{{article.source}}</a>
+        </div>
+    </div>
 </div>

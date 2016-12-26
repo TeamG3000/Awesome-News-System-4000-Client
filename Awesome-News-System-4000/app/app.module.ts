@@ -15,7 +15,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
-import { SimpleArtcileService } from '../app/simple-article/simple-artcile.service';
 
 @NgModule({
 	imports: [
@@ -34,7 +33,7 @@ import { SimpleArtcileService } from '../app/simple-article/simple-artcile.servi
 		SearchComponent,
 		NavbarComponent
 	],
-	providers: [AuthenticationService, UserService, SimpleArtcileService],
+	providers: [AuthenticationService, UserService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
