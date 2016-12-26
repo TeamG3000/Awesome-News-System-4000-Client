@@ -1,19 +1,16 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
     selector: 'navbar',
     templateUrl: 'navbar.component.html'
 })
-export class NavbarComponent implements OnChanges {
+export class NavbarComponent {
+    private pageTitle: string = 'Awesome News System';
 
-    private loggedIn: any;
+    constructor(private authenticationService: AuthenticationService) { }
 
-    constructor(private authenticationService: AuthenticationService) {
+    public isLogged() {
+        return this.authenticationService.checkIfUserIsLoggedIn();
     }
-
-    ngOnChanges() {
-        this.loggedIn = this.authenticationService.isLoggedIn;
-    }
-
 }

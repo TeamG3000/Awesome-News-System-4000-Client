@@ -16,13 +16,13 @@
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li *ngIf=!loggedIn>
+            <li *ngIf=!isLogged()>
                 <a [routerLink]="['/user/login']">Login</a>
             </li>
-            <li *ngIf=!loggedIn>
+            <li *ngIf=!isLogged()>
                 <a [routerLink]="['/user/register']">Register</a>
             </li>
-            <li *ngIf=loggedIn>
+            <li *ngIf=isLogged()>
                 <a [routerLink]="['/user/login']">Logout</a>
             </li>
         </ul>
