@@ -50,7 +50,7 @@ export class CollapseDirective {
             this.height = '0';
             this.isCollapse = true;
             this.isCollapsing = false;
-        }, 4);
+        }, 50);
     }
 
     show() {
@@ -64,6 +64,6 @@ export class CollapseDirective {
 
             this.isCollapse = true;
             this.isCollapsing = false;
-        }, 4);
+        }, 50);
     }
 }

@@ -13,10 +13,7 @@ export class SimpleArtcileService {
         return this.http
             .get(this.simpleArticlesURL, { headers: this.headers })
             .map((res) => {
-<<<<<<< HEAD
-=======
                 console.log(res.json());
->>>>>>> 3e816c83115e5135647707a47aff922cbf673031
                 return res.json();
             });
     }
