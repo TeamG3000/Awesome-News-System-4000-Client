@@ -10,11 +10,12 @@ import { Headers, Http } from '@angular/http';
 export class SimpleArticleComponent implements OnInit {
 	pageTitle: String = 'Awesome News System';
 	articles: any[];
-	constructor(private simleArticleService: SimpleArtcileService) {}
+	constructor(private simpleArticleService: SimpleArtcileService) {
+        this.articles = [];
+	}
 
 	getArticles() {
-        this.articles = [];
-        return this.simleArticleService.getArticles()
+        return this.simpleArticleService.getArticles()
             .subscribe(
             articles => {
                 this.articles = articles;
@@ -22,6 +23,16 @@ export class SimpleArticleComponent implements OnInit {
             },
             err => console.error(err));
     }
+	getNextPage(){
+		return this.simpleArticleService.getArticles()
+            .subscribe(
+            articles => {
+				this.articles= articles;
+				console.log(this.articles);
+            },
+            err => console.error(err));
+
+	}
 
 	ngOnInit() {
 		this.getArticles();
