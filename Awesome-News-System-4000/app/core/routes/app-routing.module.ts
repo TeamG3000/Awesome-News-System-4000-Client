@@ -7,11 +7,13 @@ import { LoginComponent } from '../../login/login.component';
 import { RegisterComponent } from '../../register/register.component';
 import { SearchComponent } from '../../search/search.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import { PublicSoursesListComponent } from '../../sources/public-sources/public-sources-list.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: SimpleArticleComponent },
     { path: 'about', component: AboutComponent },
     { path: 'search', component: SearchComponent },
+    { path: 'sources', component: PublicSoursesListComponent },
     { path: 'user/login', component: LoginComponent },
     { path: 'user/register', component: RegisterComponent },
     { path: 'user/profile', component: UserProfileComponent },
