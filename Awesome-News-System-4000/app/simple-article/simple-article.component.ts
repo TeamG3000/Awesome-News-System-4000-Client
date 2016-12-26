@@ -10,16 +10,20 @@ import { Headers, Http } from '@angular/http';
 export class SimpleArticleComponent implements OnInit {
 	pageTitle: String = 'Awesome News System';
 	simpleArticles: SimpleArtcileService;
-	articles: any;
-	constructor(private tosho: SimpleArtcileService) {
-		this.simpleArticles = tosho;
-	}
+	articles: any[];
+	constructor(private tosho: SimpleArtcileService) {}
+
+	getArticles() {
+        this.articles = [];
+        return this.tosho.getArticles()
+            .subscribe(
+            articles => {
+                this.articles = articles;
+            },
+            err => console.error(err));
+    }
+
 	ngOnInit() {
-		this.simpleArticles.getArticles()
-			.then((response: any) => {
-				console.log(response.json());
-				this.articles = response.json();
-			}
-			)
+		this.getArticles();
 	}
 }

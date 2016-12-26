@@ -11,9 +11,11 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
+import { SimpleArtcileService } from '../app/simple-article/simple-artcile.service';
 
 @NgModule({
 	imports: [
@@ -29,9 +31,10 @@ import { UserService } from '../app/core/services/user.service';
 		AboutComponent,
 		LoginComponent,
 		RegisterComponent,
-		SearchComponent
+		SearchComponent,
+		NavbarComponent
 	],
-	providers: [AuthenticationService, UserService],
+	providers: [AuthenticationService, UserService, SimpleArtcileService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
