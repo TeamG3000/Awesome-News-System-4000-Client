@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
@@ -31,7 +32,8 @@ import { UserService } from '../app/core/services/user.service';
 		LoginComponent,
 		RegisterComponent,
 		SearchComponent,
-		NavbarComponent
+		NavbarComponent,
+		UserProfileComponent		
 	],
 	providers: [AuthenticationService, UserService],
 	bootstrap: [AppComponent]

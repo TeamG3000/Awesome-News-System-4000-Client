@@ -14,7 +14,6 @@ export class SimpleArtcileService {
         return this.http
             .get(this.simpleArticlesURL, { headers: this.headers })
             .map((res) => {
-                console.log(JSON.stringify(res));
                 return res.json();
             });
     }

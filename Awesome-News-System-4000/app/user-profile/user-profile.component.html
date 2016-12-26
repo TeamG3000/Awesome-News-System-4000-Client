@@ -1,0 +1,43 @@
+<div class="jumbotron">
+    <h1>Hello, {{user.username}}!</h1>
+    <p>It's nice to have you on Awesome News</p>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Your selected media</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li *ngFor="let media of user.selectedMedia">
+                <span class="label label-info">{{media.name}}</span>
+            </li>
+        </ul>
+        <p>Choose the media you'd like to follow to get the latest news from them every day.</p>
+        <p><a class="btn btn-primary btn-lg" role="button">Select Media</a></p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Your favourite articles</h3>
+    </div>
+    <div class="panel-body">
+        <p>Check your favourites. It's easy to read them later.</p>
+        <ul *ngIf="user.favouriteArticles">
+            <li *ngFor="let article of user.favouriteArticles">
+                <span class="label label-info">{{article.title}}</span>
+            </li>
+        </ul>
+        <p><a class="btn btn-primary btn-lg" role="button">Check Latest Articles</a></p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Your theme settings</h3>
+    </div>
+    <div class="panel-body">
+        <p>
+            Selected theme: {{user.settings.theme}}
+        </p>
+        <p><a class="btn btn-primary btn-lg" role="button">Change Theme</a></p>
+    </div>
+</div>

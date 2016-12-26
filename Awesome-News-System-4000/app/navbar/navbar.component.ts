@@ -7,10 +7,17 @@ import { AuthenticationService } from '../core/services/authentication.service';
 })
 export class NavbarComponent {
     private pageTitle: string = 'Awesome News System';
+    public userName: string;
 
     constructor(private authenticationService: AuthenticationService) { }
 
     public isLogged() {
         return this.authenticationService.checkIfUserIsLoggedIn();
+    }
+
+    public getUserName() {
+        let user = JSON.parse(localStorage.getItem('currentUser')).user;
+        this.userName = user.username;
+        return this.userName;
     }
 }

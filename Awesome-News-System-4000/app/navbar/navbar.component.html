@@ -23,6 +23,9 @@
                 <a [routerLink]="['/user/register']">Register</a>
             </li>
             <li *ngIf=isLogged()>
+                <a [routerLink]="['/user/profile']">{{getUserName()}}</a>
+            </li>
+            <li *ngIf=isLogged()>
                 <a [routerLink]="['/user/login']">Logout</a>
             </li>
         </ul>
