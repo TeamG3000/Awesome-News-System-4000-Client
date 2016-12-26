@@ -6,6 +6,7 @@ import { AboutComponent } from '../../about/about.component';
 import { LoginComponent } from '../../login/login.component';
 import { RegisterComponent } from '../../register/register.component';
 import { SearchComponent } from '../../search/search.component';
+import { UserProfileComponent } from '../../user-profile/user-profile.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: SimpleArticleComponent },
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'user/login', component: LoginComponent },
     { path: 'user/register', component: RegisterComponent },
+    { path: 'user/profile', component: UserProfileComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
