@@ -12,10 +12,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {UserProfileComponent} from './user-profile/user-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
+
+import { CollapseDirective } from './core/directives/collapse.directive';
 
 @NgModule({
 	imports: [
@@ -33,7 +35,8 @@ import { UserService } from '../app/core/services/user.service';
 		RegisterComponent,
 		SearchComponent,
 		NavbarComponent,
-		UserProfileComponent		
+		UserProfileComponent,
+		CollapseDirective
 	],
 	providers: [AuthenticationService, UserService],
 	bootstrap: [AppComponent]

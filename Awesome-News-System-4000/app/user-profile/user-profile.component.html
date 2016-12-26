@@ -3,10 +3,10 @@
     <p>It's nice to have you on Awesome News</p>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading"(click)="isCollapsedContentSelectedMedia = !isCollapsedContentSelectedMedia">
         <h3 class="panel-title"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Your selected media</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" [collapse]="isCollapsedContentSelectedMedia">
         <ul>
             <li *ngFor="let media of user.selectedMedia">
                 <span class="label label-info">{{media.name}}</span>
@@ -17,10 +17,10 @@
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" (click)="isCollapsedContentFavouriteArticles = !isCollapsedContentFavouriteArticles">
         <h3 class="panel-title"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Your favourite articles</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" [collapse]="isCollapsedContentFavouriteArticles">
         <p>Check your favourites. It's easy to read them later.</p>
         <ul *ngIf="user.favouriteArticles">
             <li *ngFor="let article of user.favouriteArticles">
@@ -31,10 +31,10 @@
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" (click)="isCollapsedContentUserSettings = !isCollapsedContentUserSettings">
         <h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Your theme settings</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" [collapse]="isCollapsedContentUserSettings">
         <p>
             Selected theme: {{user.settings.theme}}
         </p>

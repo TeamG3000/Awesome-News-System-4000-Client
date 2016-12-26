@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-//import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class SimpleArtcileService {
@@ -14,6 +13,10 @@ export class SimpleArtcileService {
         return this.http
             .get(this.simpleArticlesURL, { headers: this.headers })
             .map((res) => {
+<<<<<<< HEAD
+=======
+                console.log(res.json());
+>>>>>>> 3e816c83115e5135647707a47aff922cbf673031
                 return res.json();
             });
     }

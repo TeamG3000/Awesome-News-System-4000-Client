@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../core/models/user-model';
+import { CollapseDirective } from '../core/directives/collapse.directive';
 
 @Component({
     templateUrl: './user-profile.component.html',
-    styles: [`
-    .fade.ng-hide {
-  transition:0.5s linear all;
-  opacity:0;
-}`],
     //styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+    public isCollapsedContentFavouriteArticles:boolean = false;
+    public isCollapsedContentSelectedMedia:boolean = false;
+    public isCollapsedContentUserSettings:boolean = false; 
+    
     public user: User;
+
     constructor() { }
 
     ngOnInit() {
