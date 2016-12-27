@@ -19,7 +19,11 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(apiUrl + '/user/' + user.id, user, this.createHeaderWithJwtToken()).map((response: Response) => response.json());
+        return this.http.put(apiUrl + '/user/' + user._id, user, this.createHeaderWithJwtToken()).map((response: Response) => response.json());
+    }
+
+    updateSelectedMediaSources(user: User) {
+        return this.http.post(apiUrl + '/sources/select-media', user, this.createHeaderWithJwtToken()).map((response: Response) => response.json());
     }
 
     private createHeaderWithJwtToken() {

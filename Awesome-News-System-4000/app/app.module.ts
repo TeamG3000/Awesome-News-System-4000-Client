@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PublicSoursesListComponent } from './sources/public-sources/public-sources-list.component';
+import { PrivateSoursesListComponent } from './sources/private-sources/private-sources-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
@@ -41,6 +42,7 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		NavbarComponent,
 		UserProfileComponent,
 		PublicSoursesListComponent,
+		PrivateSoursesListComponent,
 		CollapseDirective
 	],
 	providers: [
