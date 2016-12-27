@@ -1,5 +1,5 @@
 export class ArticleDetailsModel {
-    _id: number;
+    _id: string;
     source: string;
     title: string;
     imageUrl: string;

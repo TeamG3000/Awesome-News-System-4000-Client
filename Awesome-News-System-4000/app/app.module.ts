@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { StarComponent } from './star/star.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
@@ -38,6 +39,7 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		NavbarComponent,
 		UserProfileComponent,
 		ArticleDetailsComponent,
+		StarComponent,
 
 		CollapseDirective
 	],
