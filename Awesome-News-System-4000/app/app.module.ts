@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
@@ -36,9 +37,16 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		SearchComponent,
 		NavbarComponent,
 		UserProfileComponent,
+		ArticleDetailsComponent,
+
 		CollapseDirective
 	],
-	providers: [AuthenticationService, UserService],
+
+	providers: [
+		AuthenticationService,
+		UserService
+	],
+
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
