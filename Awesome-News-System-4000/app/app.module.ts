@@ -18,6 +18,7 @@ import { StarComponent } from './star/star.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
+import{SearchService} from './search/search.service';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 
@@ -46,7 +47,8 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 
 	providers: [
 		AuthenticationService,
-		UserService
+		UserService,
+		SearchService
 	],
 
 	bootstrap: [AppComponent]

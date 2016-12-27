@@ -19,7 +19,7 @@ export class SimpleArticleComponent implements OnInit {
 			.subscribe(
 			articles => {
 				this.articles = articles;
-				// console.log(this.articles);
+				console.log(this.articles);
 			},
 			err => console.error(err));
 	}
@@ -31,7 +31,6 @@ export class SimpleArticleComponent implements OnInit {
 				// console.log(this.articles);
 			},
 			err => console.error(err));
-
 	}
 
 	ngOnInit() {
