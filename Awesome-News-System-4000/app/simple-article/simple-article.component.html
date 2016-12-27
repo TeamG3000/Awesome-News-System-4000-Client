@@ -3,7 +3,7 @@
         <div class="panel-body">
             <img class="img-responsive" src="{{article.imageUrl}}" alt="image">
             <h2>
-                <a href="/article-details/{{article._id}}">{{article.title}}</a>
+                <a [routerLink]="['/article-details', article._id]">{{article.title}}</a>
             </h2>
         </div>
         <div class="panel-footer">published at {{article.publishedAt | date:'medium'}} by <a href="#">{{article.source}}</a>

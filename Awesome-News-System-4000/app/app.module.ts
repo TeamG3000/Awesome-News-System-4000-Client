@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PublicSoursesListComponent } from './sources/public-sources/public-sources-list.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
@@ -32,6 +33,7 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 	declarations: [
 		AppComponent,
 		SimpleArticleComponent,
+		ArticleDetailsComponent,
 		AboutComponent,
 		LoginComponent,
 		RegisterComponent,
@@ -41,7 +43,11 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		PublicSoursesListComponent,
 		CollapseDirective
 	],
-	providers: [AuthenticationService, UserService, SourcesService],
+	providers: [
+		AuthenticationService,
+		UserService,
+		SourcesService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
