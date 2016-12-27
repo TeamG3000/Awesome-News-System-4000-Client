@@ -9,10 +9,10 @@
                 <a [routerLink]="['/about']">About</a>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" action="/search" role="search" (ngSubmit)="onSubmit()">
+        <form class="navbar-form navbar-left" action="/search" role="search">
             <div class="form-group">
                 <input class="form-control" placeholder="Search" name="search" type="text" [(ngModel)]="searchPhrase">
-                <button class="btn btn-default" type="submit" (click)="search()">Submit</button>
+                <button class="btn btn-default" type="submit" (click)="search(); onSubmit() ">Submit</button>
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">

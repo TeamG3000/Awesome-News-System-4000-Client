@@ -16,6 +16,7 @@ export class NavbarComponent {
         private authenticationService: AuthenticationService,
         private searchComponent: SearchComponent,
         private router :Router) {
+            
         this.searchPhrase='';
      }
 
