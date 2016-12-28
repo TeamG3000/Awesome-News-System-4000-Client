@@ -2,7 +2,7 @@
 
 <div class="list-group">
     <form action="/select-media" method="POST">
-        <a class="list-group-item" *ngFor="let source of sources">
+        <label class="list-group-item" *ngFor="let source of sources">
             <label for="{{source.id}}">            
                 <img src={{source.urlsToLogos.small}} alt={{source.name}} width=150>
                 <!--<h4 class="list-group-item-heading">{{source.name}}</h4>-->
@@ -10,8 +10,9 @@
                 <p>Add {{source.name}} to receive aweseome news</p>
                 <input type="checkbox" name="sources" value="{{source.name}}" id="{{source.id}}" (change)="onClicked(source, $event)">
             </label>
-        </a>
-        <button type="submit" (click)="updateUserWithSelectedSources()">Submit</button>
+            <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
+        </label>
+        <a class="btn btn-success" [routerLink]="['/home']" (click)="updateUserWithSelectedSources()">Submit</a>
     </form>
 </div>
 

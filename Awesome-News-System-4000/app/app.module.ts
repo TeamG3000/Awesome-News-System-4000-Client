@@ -17,10 +17,12 @@ import { PublicSoursesListComponent } from './sources/public-sources/public-sour
 import { PrivateSoursesListComponent } from './sources/private-sources/private-sources-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { StarComponent } from './star/star.component';
+import { SourceDetailsComponent } from './sources/private-sources/private-source-details.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
 import { SourcesService } from './sources/sources.service';
+import { SearchService } from './search/search.service';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 
@@ -46,13 +48,15 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		PrivateSoursesListComponent,
 		ArticleDetailsComponent,
 		StarComponent,
+		SourceDetailsComponent,
 
 		CollapseDirective
 	],
 	providers: [
 		AuthenticationService,
 		UserService,
-		SourcesService
+		SourcesService,
+		SearchService
 	],
 	bootstrap: [AppComponent]
 })
