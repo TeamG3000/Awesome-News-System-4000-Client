@@ -17,7 +17,7 @@ export class SearchComponent {
 		return this.searchService.getSearchedArticles(searchPhares)
 			.subscribe(
 			articles => {
-				this.searchedArticles = articles;
+				this.searchedArticles = articles.articles;
 				console.log(this.searchedArticles);
 			},
 			err => console.error(err));

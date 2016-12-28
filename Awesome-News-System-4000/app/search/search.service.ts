@@ -10,11 +10,12 @@ export class SearchService {
 
     constructor(private http: Http) {}
 
-    getSearchedArticles(searchPhrase: string): Observable<any[]> {
+    getSearchedArticles(searchPhrase: string): Observable<any> {
         this.params.set('search', searchPhrase);
         return this.http
             .get(this.simpleArticlesURL, { headers: this.headers, search: this.params })
             .map((res) => {
+                console.log(res.json().articles);
                 return res.json();
             });
     }
