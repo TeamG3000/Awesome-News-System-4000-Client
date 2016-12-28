@@ -1,18 +1,31 @@
 <div>
     <h1 class="col-lg-8">{{article?.title}}</h1>
-    <h3 class="col-lg-8">{{article?.publishedAt}}</h3>
+    <h3 class="col-lg-8">{{article?.publishedAt | date:'medium'}}</h3>
 
     <div class="panel panel-default col-lg-12 content">
         <div class="col-lg-6">
             <img class="img-responsive" src={{article?.imageUrl}} alt="image" witdh="400px">
         </div>
         <div class="panel panel-default col-lg-6">
+            By: {{article?.author}}
+        </div>
+        <div class="panel panel-default col-lg-6">
+            Source: {{article?.source}}
+        </div>
+        <div class="panel panel-default col-lg-6">
             {{article?.description}}
         </div>
         <div class="panel panel-default col-lg-6">
-            Rating: {{article?.rating}}
+            <a href="{{article?.url}}">
+                 Read more
+            </a>
         </div>
-        <div class="panel panel-default col-lg-6">
+        <div class="panel col-lg-6">
+            <span>Rating: {{article?.rating}} / 5</span>
+            <star-rating [rating]='article?.rating'>
+            </star-rating>
+        </div>
+        <div *ngIf="userExists" class="panel panel-default col-lg-6">
             <select class="form-control" required [(ngModel)]="articleRatingToAdd">
                 <option>1</option>
                 <option>2</option>
@@ -23,14 +36,14 @@
             <button class="btn btn-success" type="submit" (click)="onSubmitRating()">Add Rating</button>
         </div>
     </div>
-    <div class="panel panel-default col-lg-12 content">
+    <div *ngIf="userExists" class="panel panel-default col-lg-12 content">
         <div class="col-lg-6">
-            <button class="btn btn-success" type="submit">Add To Favourites</button>
+            <button class="btn btn-success" type="submit" (click)="onAddToFavourites()">Add To Favourites</button>
         </div>
     </div>
-    <div class="panel panel-default col-lg-12 content">
+    <div *ngIf="userExists" class="panel panel-default col-lg-12 content">
         <textarea class="form-control" [(ngModel)]="articleCommentToAdd"></textarea>
-        <button class="btn btn-success" type="submit">Add Comment</button>
+        <button class="btn btn-success" type="submit" (click)="onAddCommentToArticle()">Add Comment</button>
     </div>
     <div class="panel panel-default col-lg-12 content">
         <div>Comments</div>

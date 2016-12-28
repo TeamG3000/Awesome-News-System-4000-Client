@@ -8,7 +8,7 @@
                 <!--<h4 class="list-group-item-heading">{{source.name}}</h4>-->
                 <p class="list-group-item-text">{{source.description}}</p>
                 <p>Add {{source.name}} to receive aweseome news</p>
-                <input type="checkbox" name="sources" value="{{source.id}}" id="{{source.id}}" (change)="onClicked(source, $event)">
+                <input type="checkbox" name="sources" value="{{source.name}}" id="{{source.id}}" (change)="onClicked(source, $event)">
             </label>
         </a>
         <button type="submit" (click)="updateUserWithSelectedSources()">Submit</button>

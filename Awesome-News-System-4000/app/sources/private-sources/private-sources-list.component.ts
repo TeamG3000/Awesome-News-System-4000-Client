@@ -29,8 +29,6 @@ export class PrivateSoursesListComponent implements OnInit {
 
 
     onClicked(source: Source, event: any) {
-        // console.log(event.target.value);
-        // console.log(event.target.checked);
         let index = this.selectedMediaList.indexOf(event.target.value);
 
         if (event.target.checked && index < 0) {
@@ -44,24 +42,15 @@ export class PrivateSoursesListComponent implements OnInit {
         this.user.selectedMedia = [];
         for (let i = 0; i < this.selectedMediaList.length; i++) {
             for (let j = 0; j < this.sources.length; j++) {
-                if (this.sources[j].id === this.selectedMediaList[i]) {
-                    this.user.selectedMedia.push(this.sources[j]);
+                if (this.sources[j].name === this.selectedMediaList[i]) {
+                    this.user.selectedMedia.push(this.sources[j].name);
                 }
             }
         }
-
-        // console.log(this.user.selectedMedia.length);
-        // console.log(this.selectedMediaList.length);
-
-        // this.user.selectedMedia.forEach(element => {
-        //     console.log(element);
-        // });
-
     }
 
     updateUserWithSelectedSources(): void {
-        // console.log(this.user);
-        this.userService.updateSelectedMediaSources(this.user);
+        this.userService.updateSelectedMediaSources(this.user).subscribe();
     }
 
     ngOnInit() {

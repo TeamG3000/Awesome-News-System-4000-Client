@@ -16,6 +16,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PublicSoursesListComponent } from './sources/public-sources/public-sources-list.component';
 import { PrivateSoursesListComponent } from './sources/private-sources/private-sources-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { StarComponent } from './star/star.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
@@ -43,6 +44,9 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		UserProfileComponent,
 		PublicSoursesListComponent,
 		PrivateSoursesListComponent,
+		ArticleDetailsComponent,
+		StarComponent,
+
 		CollapseDirective
 	],
 	providers: [
