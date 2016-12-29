@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class ArticleDetailsService {
     private _articleDetailsUrl = 'http://localhost:3001/article-details/';
     private _ratingUrl = '/rating';
+    private _commentUrl = 'http://localhost:3001/comment';
 
     constructor(private _http: Http) {
     }
@@ -23,15 +24,41 @@ export class ArticleDetailsService {
         });
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.post(this._articleDetailsUrl + id + this._ratingUrl, JSON.stringify(rating), options)
+        return this._http.post(this._articleDetailsUrl + id + this._ratingUrl, JSON.stringify({ rating: rating }), options)
             .map((response: Response) => {
                 return response.json();
             });
     }
     addArticleToFavourites(id: string, user: any) {
-        console.log('addArticleToFavourites');
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        return this._http.post(this._articleDetailsUrl + id, user, options)
+            .map((response: Response) => {
+                return response.json();
+            });
     }
-    addCommentToArticle(comment: string) {
-        console.log('addCommentToArticle');
+    addCommentToArticle(comment: string, id: string, userStr: any) {
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        console.log(comment);
+        console.log(id);
+        console.log(JSON.parse(userStr).user.username);
+        return this._http
+            .post(this._commentUrl, JSON.stringify({
+                commentContent: comment,
+                user: {
+                    username: JSON.parse(userStr).user.username
+                },
+                articleId: id
+            }), options)
+            .map((response: Response) => {
+                return response.json();
+            });
     }
 }

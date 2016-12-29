@@ -38,10 +38,15 @@ export class ArticleDetailsComponent implements OnInit {
             .subscribe(response => console.log(response));
     }
     onAddToFavourites() {
-        this._service.addArticleToFavourites(this.article._id, this.user);
+        this._service.addArticleToFavourites(this.article._id, this.user)
+            .subscribe(response => console.log(response));
     }
     onAddCommentToArticle() {
-        this._service.addCommentToArticle(this.articleCommentToAdd);
+        this._service.addCommentToArticle(this.articleCommentToAdd, this.article._id, this.user)
+            .subscribe(
+            item => this.article.comments = item.comments,
+            error => this.errorMessage = <any>error
+            );
     }
     getArticleDetails(id: string) {
         this._service.getArticle(id).subscribe(
