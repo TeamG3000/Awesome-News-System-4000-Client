@@ -8,6 +8,9 @@
             <li>
                 <a [routerLink]="['/about']">About</a>
             </li>
+            <li>
+                <a [routerLink]="['/top100']">Top 100</a>
+            </li>
         </ul>
         <form class="navbar-form navbar-left" action="/search" role="search">
             <div class="form-group">
@@ -15,6 +18,7 @@
                 <button class="btn btn-default" type="submit" (click)="search(); onSubmit() ">Submit</button>
             </div>
         </form>
+
         <ul class="nav navbar-nav navbar-right">
             <li *ngIf=!isLogged()>
                 <a [routerLink]="['/user/login']">Login</a>

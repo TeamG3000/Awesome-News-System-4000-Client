@@ -15,10 +15,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { StarComponent } from './star/star.component';
+import { TopOneHundredComponent } from './top-onehundred/top-onehundred.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
-import{SearchService} from './search/search.service';
+import { SearchService } from './search/search.service';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 
@@ -41,6 +42,7 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		UserProfileComponent,
 		ArticleDetailsComponent,
 		StarComponent,
+		TopOneHundredComponent,
 
 		CollapseDirective
 	],

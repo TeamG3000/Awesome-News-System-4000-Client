@@ -8,11 +8,13 @@ import { RegisterComponent } from '../../register/register.component';
 import { SearchComponent } from '../../search/search.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { ArticleDetailsComponent } from '../../article-details/article-details.component';
+import { TopOneHundredComponent } from '../../top-onehundred/top-onehundred.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: SimpleArticleComponent },
     { path: 'about', component: AboutComponent },
     { path: 'search', component: SearchComponent },
+    { path: 'top100', component: TopOneHundredComponent },
     { path: 'user/login', component: LoginComponent },
     { path: 'user/register', component: RegisterComponent },
     { path: 'user/profile', component: UserProfileComponent },
