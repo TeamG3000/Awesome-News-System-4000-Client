@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SimpleArtcileService } from './simple-artcile.service'
-import { Headers, Http } from '@angular/http';
 
 @Component({
 	templateUrl: './simple-article.component.html',

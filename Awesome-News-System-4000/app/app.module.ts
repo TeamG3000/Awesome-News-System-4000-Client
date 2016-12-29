@@ -17,13 +17,15 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PublicSoursesListComponent } from './sources/public-sources/public-sources-list.component';
 import { PrivateSoursesListComponent } from './sources/private-sources/private-sources-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
-import { StarComponent } from './star/star.component';
+import { TopOneHundredComponent } from './top-onehundred/top-onehundred.component';
 import { SourceDetailsComponent } from './sources/private-sources/private-source-details.component';
+import { StarComponent } from './star/star.component'
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
 import { SourcesService } from './sources/sources.service';
 import { SearchService } from './search/search.service';
+
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.pipe';
@@ -52,7 +54,9 @@ import { SortSourcesPipe } from './core/pipes/sort.pipe';
 		PrivateSoursesListComponent,
 		ArticleDetailsComponent,
 		StarComponent,
+		TopOneHundredComponent,
 		SourceDetailsComponent,
+
 
 		CollapseDirective,
 		CapitalizeFirstLetterPipe,
@@ -61,7 +65,6 @@ import { SortSourcesPipe } from './core/pipes/sort.pipe';
 	providers: [
 		AuthenticationService,
 		UserService,
-		SourcesService,
 		SearchService
 	],
 	bootstrap: [AppComponent]
