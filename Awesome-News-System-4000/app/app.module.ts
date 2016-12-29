@@ -25,6 +25,7 @@ import { SourcesService } from './sources/sources.service';
 import { SearchService } from './search/search.service';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
+import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.pipe';
 
 @NgModule({
 	imports: [
@@ -50,7 +51,8 @@ import { CollapseDirective } from './core/directives/collapse.directive';
 		StarComponent,
 		SourceDetailsComponent,
 
-		CollapseDirective
+		CollapseDirective,
+		CapitalizeFirstLetterPipe
 	],
 	providers: [
 		AuthenticationService,
