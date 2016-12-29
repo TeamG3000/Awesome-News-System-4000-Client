@@ -27,6 +27,7 @@ import { SearchService } from './search/search.service';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.pipe';
+import { SortSourcesPipe } from './core/pipes/sort.pipe';
 
 @NgModule({
 	imports: [
@@ -54,7 +55,8 @@ import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.
 		SourceDetailsComponent,
 
 		CollapseDirective,
-		CapitalizeFirstLetterPipe
+		CapitalizeFirstLetterPipe,
+		SortSourcesPipe
 	],
 	providers: [
 		AuthenticationService,

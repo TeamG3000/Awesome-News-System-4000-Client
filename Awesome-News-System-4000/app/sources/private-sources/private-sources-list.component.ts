@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { SourcesService } from '../sources.service';
 import { UserService } from '../../core/services/user.service';
@@ -16,6 +16,18 @@ export class PrivateSoursesListComponent implements OnInit {
 
     constructor(private sourcesService: SourcesService, private userService: UserService) {
         this.user = JSON.parse(localStorage.getItem('currentUser')).user;
+    }
+
+    @Output('onSortChange') sortedMediaSourcesEmitter: EventEmitter<string> = new EventEmitter<string>();
+    @Output('onOrderChange') orderedMediaSourcesEmitter: EventEmitter<string> = new EventEmitter<string>();
+
+
+    onSortChange(source: string) {
+        this.sortedMediaSourcesEmitter.emit(source);
+    }
+
+    onOrderChange(source: string) {
+        this.orderedMediaSourcesEmitter.emit(source);
     }
 
     getSources() {

@@ -1,18 +1,41 @@
 <h1>Select Awesome News Sources</h1>
 
+<form>
+    <div class="form-group col-lg-4">
+        <label for="select-sort">Sort</label>
+        <select id="select-sort" class="form-control" (change)="onSortChange($event.target.value)" name="sort" [(ngModel)]="sort">
+                        <option><a href="#">country</a></option>
+                        <option><a href="#">category</a></option>
+                        <option><a href="#">name</a></option>            
+                    </select>
+    </div>
+
+    <div class="form-group col-lg-4">
+        <label for="select-order">Order</label>
+        <select id="select-order" class="form-control" (change)="onOrderChange($event.target.value)" name="order" [(ngModel)]="order">
+                        <option><a href="#">Asc</a></option>
+                        <option><a href="#">Desc</a></option>
+                    </select>
+    </div>
+</form>
+
 <div class="list-group">
     <form action="/select-media" method="POST">
-        <label class="list-group-item" *ngFor="let source of sources">
+        <label class="list-group-item" *ngFor="let source of sources | sort: [sort, order]">
             <label for="{{source.id}}">            
                 <img src={{source.urlsToLogos.small}} alt={{source.name}} width=150>
                 <!--<h4 class="list-group-item-heading">{{source.name}}</h4>-->
                 <p class="list-group-item-text">{{source.description}}</p>
                 <p>Add {{source.name}} to receive aweseome news</p>
                 <input type="checkbox" name="sources" value="{{source.name}}" id="{{source.id}}" (change)="onClicked(source, $event)">
+                <br>
+                <div class="text-right">
+                    <span class="label label-default">{{source.category}}</span>
+                    <span class="label label-default">{{source.country}}</span>
+                </div>
             </label>
-            <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
+        <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
         </label>
         <a class="btn btn-success" [routerLink]="['/home']" (click)="updateUserWithSelectedSources()">Submit</a>
     </form>
 </div>
-
