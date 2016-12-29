@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PublicSoursesListComponent } from './sources/public-sources/public-sources-list.component';
 import { PrivateSoursesListComponent } from './sources/private-sources/private-sources-list.component';
@@ -44,6 +45,7 @@ import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.
 		RegisterComponent,
 		SearchComponent,
 		NavbarComponent,
+		FooterComponent,
 		UserProfileComponent,
 		PublicSoursesListComponent,
 		PrivateSoursesListComponent,

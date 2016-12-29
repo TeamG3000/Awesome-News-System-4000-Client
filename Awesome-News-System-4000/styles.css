@@ -1,0 +1,19 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+html, body{
+  margin: 0;
+}
+
+.center-block {  
+  margin-right: auto;  
+  margin-left: auto;  
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+}
+
+@media (max-height:800px){
+	footer { position: static; }
+}
