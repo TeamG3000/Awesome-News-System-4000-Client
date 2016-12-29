@@ -1,23 +1,28 @@
 <h1>Select Awesome News Sources</h1>
-
-<form>
-    <div class="form-group col-lg-4">
-        <label for="select-sort">Sort</label>
-        <select id="select-sort" class="form-control" (change)="onSortChange($event.target.value)" name="sort" [(ngModel)]="sort">
+<br>
+<hr>
+    <form name="sort" action="/sort">
+        <div class="form-group col-lg-4">
+            <label for="select-sort">Sort</label>
+            <select id="select-sort" class="form-control" (change)="onSortChange($event.target.value)" name="sort" [(ngModel)]="sort">
                         <option><a href="#">country</a></option>
                         <option><a href="#">category</a></option>
                         <option><a href="#">name</a></option>            
                     </select>
-    </div>
+        </div>
 
-    <div class="form-group col-lg-4">
-        <label for="select-order">Order</label>
-        <select id="select-order" class="form-control" (change)="onOrderChange($event.target.value)" name="order" [(ngModel)]="order">
+        <div class="form-group col-lg-4">
+            <label for="select-order">Order</label>
+            <select id="select-order" class="form-control" (change)="onOrderChange($event.target.value)" name="order" [(ngModel)]="order">
                         <option><a href="#">Asc</a></option>
                         <option><a href="#">Desc</a></option>
                     </select>
-    </div>
-</form>
+        </div>
+    </form>
+
+<br>
+<br>
+<hr>
 
 <div class="list-group">
     <form action="/select-media" method="POST">
@@ -34,7 +39,7 @@
                     <span class="label label-default">{{source.country}}</span>
                 </div>
             </label>
-            <br>
+        <br>
         <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
         </label>
         <a class="btn btn-success" [routerLink]="['/home']" (click)="updateUserWithSelectedSources()">Submit</a>
