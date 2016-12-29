@@ -65,7 +65,8 @@ import { SortSourcesPipe } from './core/pipes/sort.pipe';
 	providers: [
 		AuthenticationService,
 		UserService,
-		SearchService
+		SearchService,
+		SourcesService
 	],
 	bootstrap: [AppComponent]
 })

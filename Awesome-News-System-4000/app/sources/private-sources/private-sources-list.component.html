@@ -34,6 +34,7 @@
                     <span class="label label-default">{{source.country}}</span>
                 </div>
             </label>
+            <br>
         <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
         </label>
         <a class="btn btn-success" [routerLink]="['/home']" (click)="updateUserWithSelectedSources()">Submit</a>
