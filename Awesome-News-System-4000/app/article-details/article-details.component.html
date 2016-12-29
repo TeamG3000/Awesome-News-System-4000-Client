@@ -21,11 +21,11 @@
             </a>
         </div>
         <div class="panel col-lg-6">
-            <span>Rating: {{article?.rating}} / 5</span>
+            <span>Rating: {{article?.rating | number:'1.2-2'}} / 5</span>
             <star-rating [rating]='article?.rating'>
             </star-rating>
         </div>
-        <div *ngIf="userExists" class="panel panel-default col-lg-6">
+        <div *ngIf="userExists && !isRatingAdded" class="panel col-lg-6">
             <select class="form-control" required [(ngModel)]="articleRatingToAdd">
                 <option>1</option>
                 <option>2</option>
@@ -36,7 +36,7 @@
             <button class="btn btn-success" type="submit" (click)="onSubmitRating()">Add Rating</button>
         </div>
     </div>
-    <div *ngIf="userExists" class="panel panel-default col-lg-12 content">
+    <div *ngIf="userExists && !isAddedToFavourites" class="panel col-lg-6 content">
         <div class="col-lg-6">
             <button class="btn btn-success" type="submit" (click)="onAddToFavourites()">Add To Favourites</button>
         </div>
@@ -45,12 +45,14 @@
         <textarea class="form-control" [(ngModel)]="articleCommentToAdd"></textarea>
         <button class="btn btn-success" type="submit" (click)="onAddCommentToArticle()">Add Comment</button>
     </div>
-    <div class="panel panel-default col-lg-12 content">
-        <div>Comments</div>
-        <div *ngFor="let comment of article?.comments">
-            <div>{{comment.content}}</div>
-            <div>{{comment.author}}</div>
-            <div>{{comment.date}}</div>
+    <div class="panel col-lg-12 content">
+        <h3>Comments</h3>
+        <div *ngFor="let comment of article?.comments" class="panel panel-default col-lg-12">
+            <div class="panel col-lg-12">{{comment.content}}</div>
+            <div class="panel col-lg-1">Author: </div>
+            <div class="panel col-lg-5 pull-left">{{comment.author}}</div>
+            <div class="panel col-lg-1">Date: </div>
+            <div class="panel col-lg-5 pull-left">{{comment.date | date:'medium'}}</div>
         </div>
     </div>
 </div>

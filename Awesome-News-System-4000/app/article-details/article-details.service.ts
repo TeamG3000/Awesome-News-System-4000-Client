@@ -46,9 +46,6 @@ export class ArticleDetailsService {
         });
         let options = new RequestOptions({ headers: headers });
 
-        console.log(comment);
-        console.log(id);
-        console.log(JSON.parse(userStr).user.username);
         return this._http
             .post(this._commentUrl, JSON.stringify({
                 commentContent: comment,

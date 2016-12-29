@@ -19,17 +19,19 @@ import { PrivateSoursesListComponent } from './sources/private-sources/private-s
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { TopOneHundredComponent } from './top-onehundred/top-onehundred.component';
 import { SourceDetailsComponent } from './sources/private-sources/private-source-details.component';
-import { StarComponent } from './star/star.component'
+import { StarComponent } from './star/star.component';
+import { FavouriteArticlesComponent } from './favourite-articles/favourite-articles.component';
 
 import { AuthenticationService } from '../app/core/services/authentication.service';
 import { UserService } from '../app/core/services/user.service';
 import { SourcesService } from './sources/sources.service';
 import { SearchService } from './search/search.service';
-
+import { UserGuardService } from './core/guards/user-guard.service';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.pipe';
 import { SortSourcesPipe } from './core/pipes/sort.pipe';
+import { FavouritesFilterByTitle } from './core/pipes/favourites-filter.pipe';
 
 @NgModule({
 	imports: [
@@ -56,18 +58,22 @@ import { SortSourcesPipe } from './core/pipes/sort.pipe';
 		StarComponent,
 		TopOneHundredComponent,
 		SourceDetailsComponent,
-
+		FavouriteArticlesComponent,
 
 		CollapseDirective,
 		CapitalizeFirstLetterPipe,
-		SortSourcesPipe
+		SortSourcesPipe,
+		FavouritesFilterByTitle
 	],
+
 	providers: [
 		AuthenticationService,
 		UserService,
 		SearchService,
-		SourcesService
+		SourcesService,
+		UserGuardService
 	],
+
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

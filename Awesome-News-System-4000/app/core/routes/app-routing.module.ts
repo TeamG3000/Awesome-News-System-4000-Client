@@ -12,6 +12,9 @@ import { PrivateSoursesListComponent } from '../../sources/private-sources/priva
 import { ArticleDetailsComponent } from '../../article-details/article-details.component';
 import { TopOneHundredComponent } from '../../top-onehundred/top-onehundred.component';
 import { SourceDetailsComponent } from '../../sources/private-sources/private-source-details.component';
+import { FavouriteArticlesComponent } from '../../favourite-articles/favourite-articles.component';
+
+import { UserGuardService } from '../guards/user-guard.service';
 
 const appRoutes: Routes = [
     { path: 'home', component: SimpleArticleComponent },
@@ -19,12 +22,29 @@ const appRoutes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'top100', component: TopOneHundredComponent },
     { path: 'sources', component: PublicSoursesListComponent },
-    { path: 'source-details/:id', component: SourceDetailsComponent },    
+    {
+        path: 'source-details/:id',
+        canActivate: [UserGuardService],
+        component: SourceDetailsComponent
+    },
     { path: 'user/login', component: LoginComponent },
     { path: 'user/register', component: RegisterComponent },
-    { path: 'user/profile', component: UserProfileComponent },
+    {
+        path: 'user/profile',
+        canActivate: [UserGuardService],
+        component: UserProfileComponent
+    },
     { path: 'article-details/:id', component: ArticleDetailsComponent },
-    { path: 'select-media', component: PrivateSoursesListComponent },
+    {
+        path: 'select-media',
+        canActivate: [UserGuardService],
+        component: PrivateSoursesListComponent
+    },
+    {
+        path: 'favourite-articles',
+        canActivate: [UserGuardService],
+        component: FavouriteArticlesComponent
+    },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

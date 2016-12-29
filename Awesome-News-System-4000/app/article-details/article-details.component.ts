@@ -15,7 +15,8 @@ export class ArticleDetailsComponent implements OnInit {
     article: ArticleDetailsModel;
     articleRatingToAdd: number;
     articleCommentToAdd: string;
-    errorMessage: string;
+    isAddedToFavourites: boolean = false;
+    isRatingAdded: boolean = false;
     private user: any;
     userExists: boolean = false;
 
@@ -35,23 +36,38 @@ export class ArticleDetailsComponent implements OnInit {
     }
     onSubmitRating() {
         this._service.addRatingToArticle(this.article._id, this.articleRatingToAdd)
-            .subscribe(response => console.log(response));
+            .subscribe(response => {
+                this.article.rating = response.article.rating;
+                this.isRatingAdded = true;
+            });
     }
     onAddToFavourites() {
         this._service.addArticleToFavourites(this.article._id, this.user)
-            .subscribe(response => console.log(response));
+            .subscribe(response => {
+                this.isAddedToFavourites = true;
+                // let updatedUser = JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user;
+                // updatedUser.favouriteArticles.push({
+                //     _id: this.article._id,
+                //     imageUrl: this.article.imageUrl,
+                //     originalId: this._route.snapshot.params['id'],
+                //     publishedAt: this.article.publishedAt,
+                //     source: this.article.source,
+                //     title: this.article.title
+                // });
+                // console.log(JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user);
+                // console.log(updatedUser);
+                // localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                // console.log(localStorage.getItem('currentUser'));
+            });
     }
     onAddCommentToArticle() {
-        this._service.addCommentToArticle(this.articleCommentToAdd, this.article._id, this.user)
-            .subscribe(
-            item => this.article.comments = item.comments,
-            error => this.errorMessage = <any>error
-            );
+        this._service.addCommentToArticle(this.articleCommentToAdd, this.article._id, this.user).subscribe(
+            item => this.article.comments = item.comments
+        );
     }
     getArticleDetails(id: string) {
         this._service.getArticle(id).subscribe(
-            data => this.article = data.result,
-            error => this.errorMessage = <any>error
+            data => this.article = data.result
         );
     }
 }
