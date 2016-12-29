@@ -6,16 +6,19 @@
                 <a [routerLink]="['/home']">Latest News</a>
             </li>
             <li>
+                <a [routerLink]="['/sources']">Sources</a>
+            </li>
+            <li>
                 <a [routerLink]="['/about']">About</a>
             </li>
             <li>
                 <a [routerLink]="['/top100']">Top 100</a>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" action="/search" role="search">
+        <form class="navbar-form navbar-left" role="search" action="/search">
             <div class="form-group">
-                <input class="form-control" placeholder="Search" name="search" type="text" [(ngModel)]="searchPhrase">
-                <button class="btn btn-default" type="submit" (click)="search(); onSubmit() ">Submit</button>
+                <input class="form-control" placeholder="Search" name="search" type="text">
+                <button class="btn btn-default" type="submit">Submit</button>
             </div>
         </form>
 

@@ -1,6 +1,8 @@
 <div class="jumbotron">
+    <div class="page-header">
     <h1>Hello, {{user.username}}!</h1>
-    <p>It's nice to have you on Awesome News</p>
+    <small>It's nice to have you on Awesome News</small>
+    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"(click)="isCollapsedContentSelectedMedia = !isCollapsedContentSelectedMedia">
@@ -13,7 +15,7 @@
             </li>
         </ul>
         <p>Choose the media you'd like to follow to get the latest news from them every day.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Select Media</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" [routerLink]="['/select-media']">Select Media</a></p>
     </div>
 </div>
 <div class="panel panel-default">

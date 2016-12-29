@@ -1,5 +1,5 @@
 export class User {
-    id: number;
+    _id: string;
     username: string;
     email: string;
     favouriteArticles: any[];
