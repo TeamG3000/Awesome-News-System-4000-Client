@@ -16,7 +16,7 @@ export class NavbarComponent {
         private authenticationService: AuthenticationService,
         private searchComponent: SearchComponent,
         private router :Router) {
-            
+
         this.searchPhrase='';
      }
 
@@ -30,6 +30,7 @@ export class NavbarComponent {
         return this.userName;
     }
     private search(){
+        console.log(this.searchPhrase);
         this.searchComponent.search(this.searchPhrase);
         this.searchPhrase='';
     }

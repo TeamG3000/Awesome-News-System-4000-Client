@@ -1,4 +1,4 @@
-<div *ngFor="let article of articles.simpleArticles">
+<div *ngFor="let article of articles">
     <div class="panel panel-default">
         <div class="panel-body">
             <img class="img-responsive" src="{{article.imageUrl}}" alt="image">
@@ -10,4 +10,5 @@
         </div>
     </div>
 </div>
-<button (click)="getNextPage()">NEED MOAR!</button>
+<button (click)="getNextPage()" class="btn btn-primary btn-block">MOAR!!!</button>
+<br>
