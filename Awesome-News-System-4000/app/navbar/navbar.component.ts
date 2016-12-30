@@ -31,8 +31,9 @@ export class NavbarComponent {
     }
     private search(){
         console.log(this.searchPhrase);
-        this.searchComponent.search(this.searchPhrase);
-        this.searchPhrase='';
+        localStorage.setItem("searchPhrase", this.searchPhrase);
+       //this.searchComponent.search(this.searchPhrase);
+       //this.searchPhrase='';
     }
     private onSubmit(){
         this.router.navigateByUrl('/search');
