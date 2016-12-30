@@ -25,7 +25,7 @@
 <hr>
 
 <div class="list-group">
-    <form action="/select-media" method="POST">
+    <form action="/select-media" method="POST" (ngSubmit)="updateUserWithSelectedSources()">
         <label class="list-group-item" *ngFor="let source of sources | sort: [sort, order]">
             <label for="{{source.id}}">            
                 <img src={{source.urlsToLogos.small}} alt={{source.name}} width=150>
@@ -42,6 +42,7 @@
         <br>
         <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
         </label>
-        <a class="btn btn-success" [routerLink]="['/home']" (click)="updateUserWithSelectedSources()">Submit</a>
+        <!--<a class="btn btn-success" [routerLink]="['/home']">Submit</a>-->
+        <button class="btn btn-primary">Submit</button>
     </form>
 </div>

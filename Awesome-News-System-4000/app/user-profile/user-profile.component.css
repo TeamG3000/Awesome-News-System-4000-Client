@@ -2,6 +2,7 @@ ul li {
     list-style-type: none;
 }
 
-li{
+.user-profile-label{
     display: inline-block;
+    margin: 0.5%;
 }

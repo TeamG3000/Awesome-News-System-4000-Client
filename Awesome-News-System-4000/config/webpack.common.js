@@ -27,19 +27,22 @@ module.exports = {
 			loader: 'html-loader'
 		}, {
 			test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-			loader: 'file?name=assets/[name].[hash].[ext]'
+			loader: 'file-loader?name=assets/[name].[hash].[ext]'
 		}, {
 			test: /\.css$/,
 			exclude: helpers.root('src', 'app'),
-			loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+			loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap-loader' })
 		}, {
 			test: /\.css$/,
-			include: helpers.root('src', 'app'),
+			include: helpers.root('demo', 'src', 'app'),
 			loader: 'raw-loader'
-		}]
+		},
+		]
 	},
 
 	plugins: [
+		new ExtractTextPlugin("styles.css"),
+
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ['app', 'vendor', 'polyfills']
 		}),
@@ -49,12 +52,12 @@ module.exports = {
 		}),
 
 		new ContextReplacementPlugin(
-        // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-        helpers.root(''), // location of your src
-        {
-          // your Angular Async Route paths relative to this root directory
-        }
-      )
+			// The (\\|\/) piece accounts for path separators in *nix and Windows
+			/angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
+			helpers.root(''), // location of your src
+			{
+				// your Angular Async Route paths relative to this root directory
+			}
+		)
 	]
 };

@@ -4,7 +4,8 @@ import { SourcesService } from '../sources.service';
 import {Source} from '../../core/models/source-model';
 
 @Component({
-    templateUrl: 'public-sources-list.component.html'
+    templateUrl: 'public-sources-list.component.html',
+    styles: [String(require('./public-sources.component.css'))]
 })
 export class PublicSoursesListComponent implements OnInit {
     private sources: Source[];

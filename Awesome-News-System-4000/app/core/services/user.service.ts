@@ -33,7 +33,7 @@ export class UserService {
     }
 
     private createHeaderWithJwtToken() {
-        let currentUser = JSON.parse(localStorage.getItem('currentUser')).user;
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
             let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer ' + currentUser.token });
             return new RequestOptions({ headers: headers });

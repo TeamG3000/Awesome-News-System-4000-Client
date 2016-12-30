@@ -10,7 +10,7 @@
     </div>
     <div class="panel-body" [collapse]="isCollapsedContentSelectedMedia">
         <ul>
-            <li *ngFor="let media of user.selectedMedia">
+            <li class="user-profile-label" *ngFor="let media of user.selectedMedia">
                 <span class="label label-info">{{media.name}}</span>
             </li>
         </ul>
@@ -25,11 +25,11 @@
     <div class="panel-body" [collapse]="isCollapsedContentFavouriteArticles">
         <p>Check your favourites. It's easy to read them later.</p>
         <ul *ngIf="user.favouriteArticles">
-            <li *ngFor="let article of user.favouriteArticles">
+            <li class="user-profile-label" *ngFor="let article of user.favouriteArticles">
                 <span class="label label-info">{{article.title}}</span>
             </li>
         </ul>
-        <p><a class="btn btn-primary btn-lg" role="button" [routerLink]="['/favourite-articles']">Check Latest Articles</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" [routerLink]="['/favourite-articles']">Read Your Favourite Articles</a></p>
     </div>
 </div>
 <div class="panel panel-default">
