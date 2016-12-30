@@ -29,8 +29,9 @@ export class ArticleDetailsComponent implements OnInit {
         this.isUserLogged();
     }
     isUserLogged() {
-        this.user = JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user;
-        if (this.user !== null) {
+        let userLocalStorage = this._authenticationService.checkIfUserIsLoggedIn();
+        if (userLocalStorage !== null) {
+            this.user = JSON.parse(userLocalStorage).user;
             this.userExists = true;
         }
     }
