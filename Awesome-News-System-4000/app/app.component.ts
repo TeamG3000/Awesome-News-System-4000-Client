@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
 	selector: 'ans-app',
@@ -11,4 +13,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	pageTitle: String = 'Awesome News System';
+
+	constructor(private toastr: ToastsManager, private viewContainerRef: ViewContainerRef) {
+		this.toastr.setRootViewContainerRef(viewContainerRef);
+	}
 }

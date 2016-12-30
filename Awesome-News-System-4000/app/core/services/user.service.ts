@@ -24,6 +24,7 @@ export class UserService {
     }
 
     updateSelectedMediaSources(user: User) {
+        console.log(user.selectedMedia);
         let body = JSON.stringify({
             username: user.username,
             selectedMedia: user.selectedMedia

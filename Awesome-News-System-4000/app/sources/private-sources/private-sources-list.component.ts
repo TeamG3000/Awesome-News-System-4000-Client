@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 import { SourcesService } from '../sources.service';
 import { AuthenticationService } from '../../core/services/authentication.service';
 import { UserService } from '../../core/services/user.service';
@@ -18,7 +20,8 @@ export class PrivateSoursesListComponent implements OnInit {
     constructor(
         private sourcesService: SourcesService,
         private userService: UserService,
-        private authenthicationService: AuthenticationService
+        private authenthicationService: AuthenticationService,
+        public toastr: ToastsManager
     ) {
         this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     }
@@ -60,7 +63,7 @@ export class PrivateSoursesListComponent implements OnInit {
         for (let i = 0; i < this.selectedMediaList.length; i++) {
             for (let j = 0; j < this.sources.length; j++) {
                 if (this.sources[j].name === this.selectedMediaList[i]) {
-                    this.user.selectedMedia.push(this.sources[j].name);
+                    this.user.selectedMedia.push(this.sources[j]);
                 }
             }
         }
@@ -83,4 +86,8 @@ export class PrivateSoursesListComponent implements OnInit {
     ngOnInit() {
         this.getSources();
     }
+
+    showSuccess() {
+        this.toastr.success('You are awesome!', 'Success!');
+      }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 import { User } from '../core/models/user-model';
 import { CollapseDirective } from '../core/directives/collapse.directive';
 
@@ -13,9 +15,13 @@ export class UserProfileComponent implements OnInit {
     
     public user: User;
 
-    constructor() { }
+    constructor(public toastr: ToastsManager) { }
 
     ngOnInit() {
         this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     }
+
+    showSuccess() {
+        this.toastr.success('You are awesome!', 'Success!');
+      }
 }
