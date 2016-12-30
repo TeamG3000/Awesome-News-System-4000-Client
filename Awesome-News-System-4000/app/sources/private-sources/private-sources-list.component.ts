@@ -63,7 +63,10 @@ export class PrivateSoursesListComponent implements OnInit {
         for (let i = 0; i < this.selectedMediaList.length; i++) {
             for (let j = 0; j < this.sources.length; j++) {
                 if (this.sources[j].name === this.selectedMediaList[i]) {
-                    this.user.selectedMedia.push(this.sources[j]);
+                    this.user.selectedMedia.push({
+                        name: this.sources[j].name,
+                        id: this.sources[j].id
+                    });
                 }
             }
         }
@@ -89,5 +92,5 @@ export class PrivateSoursesListComponent implements OnInit {
 
     showSuccess() {
         this.toastr.success('You are awesome!', 'Success!');
-      }
+    }
 }
