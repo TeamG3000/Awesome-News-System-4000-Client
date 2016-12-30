@@ -29,7 +29,7 @@ export class ArticleDetailsComponent implements OnInit {
         this.isUserLogged();
     }
     isUserLogged() {
-        this.user = this._authenticationService.checkIfUserIsLoggedIn();
+        this.user = JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user;
         if (this.user !== null) {
             this.userExists = true;
         }
@@ -42,7 +42,7 @@ export class ArticleDetailsComponent implements OnInit {
             });
     }
     onAddToFavourites() {
-        this._service.addArticleToFavourites(this.article._id, this.user)
+        this._service.addArticleToFavourites(this.article._id, this.user, this._route.snapshot.params['id'])
             .subscribe(response => {
                 this.isAddedToFavourites = true;
                 let updatedUser = JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user;
@@ -56,6 +56,8 @@ export class ArticleDetailsComponent implements OnInit {
                 });
                 localStorage.removeItem('currentUser');
                 localStorage.setItem('currentUser', JSON.stringify({ user: updatedUser }));
+            }, error => {
+                alert('Item already in favourites.');
             });
     }
     onAddCommentToArticle() {
