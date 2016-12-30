@@ -5,8 +5,11 @@
             <li>
                 <a [routerLink]="['/home']">Latest News</a>
             </li>
-            <li>
+            <li *ngIf=!isLogged()>
                 <a [routerLink]="['/sources']">Sources</a>
+            </li>
+            <li *ngIf=isLogged()>
+                <a [routerLink]="['/select-media']"> Select Media</a>
             </li>
             <li>
                 <a [routerLink]="['/about']">About</a>

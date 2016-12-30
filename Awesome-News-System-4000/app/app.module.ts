@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+
 import { AppRoutingModule } from './core/routes/app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -38,7 +40,8 @@ import { FavouritesFilterByTitle } from './core/pipes/favourites-filter.pipe';
 		BrowserModule,
 		HttpModule,
 		FormsModule,
-		AppRoutingModule
+		AppRoutingModule,
+		ToastModule
 	],
 
 	declarations: [

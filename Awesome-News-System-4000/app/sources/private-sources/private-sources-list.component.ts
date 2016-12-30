@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { SourcesService } from '../sources.service';
+import { AuthenticationService } from '../../core/services/authentication.service';
 import { UserService } from '../../core/services/user.service';
 import { Source } from '../../core/models/source-model';
 import { User } from '../../core/models/user-model';
@@ -14,7 +15,11 @@ export class PrivateSoursesListComponent implements OnInit {
     private selectedMediaItem: any;
     private selectedMediaList: any[] = [];
 
-    constructor(private sourcesService: SourcesService, private userService: UserService) {
+    constructor(
+        private sourcesService: SourcesService,
+        private userService: UserService,
+        private authenthicationService: AuthenticationService
+    ) {
         this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     }
 
@@ -62,7 +67,17 @@ export class PrivateSoursesListComponent implements OnInit {
     }
 
     updateUserWithSelectedSources(): void {
-        this.userService.updateSelectedMediaSources(this.user).subscribe();
+        this.userService.updateSelectedMediaSources(this.user).subscribe(response => {
+            let updatedUser = JSON.parse(this.authenthicationService.checkIfUserIsLoggedIn()).user;
+            updatedUser.selectedMedia = [];
+            this.selectedMediaList.forEach(media =>
+                updatedUser.selectedMedia.push({
+                    name: media
+                }));
+
+            localStorage.removeItem('currentUser');
+            localStorage.setItem('currentUser', JSON.stringify({ user: updatedUser }));
+        });
     }
 
     ngOnInit() {
