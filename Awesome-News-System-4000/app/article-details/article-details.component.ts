@@ -45,19 +45,17 @@ export class ArticleDetailsComponent implements OnInit {
         this._service.addArticleToFavourites(this.article._id, this.user)
             .subscribe(response => {
                 this.isAddedToFavourites = true;
-                // let updatedUser = JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user;
-                // updatedUser.favouriteArticles.push({
-                //     _id: this.article._id,
-                //     imageUrl: this.article.imageUrl,
-                //     originalId: this._route.snapshot.params['id'],
-                //     publishedAt: this.article.publishedAt,
-                //     source: this.article.source,
-                //     title: this.article.title
-                // });
-                // console.log(JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user);
-                // console.log(updatedUser);
-                // localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-                // console.log(localStorage.getItem('currentUser'));
+                let updatedUser = JSON.parse(this._authenticationService.checkIfUserIsLoggedIn()).user;
+                updatedUser.favouriteArticles.push({
+                    _id: this.article._id,
+                    imageUrl: this.article.imageUrl,
+                    originalId: this._route.snapshot.params['id'],
+                    publishedAt: this.article.publishedAt,
+                    source: this.article.source,
+                    title: this.article.title
+                });
+                localStorage.removeItem('currentUser');
+                localStorage.setItem('currentUser', JSON.stringify({ user: updatedUser }));
             });
     }
     onAddCommentToArticle() {
