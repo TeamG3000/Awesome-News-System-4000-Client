@@ -15,8 +15,14 @@ export class SimpleArticleComponent implements OnInit {
 		this.articles = [];
 	}
 
-	getNextPage(user: any) {
-		return this.simpleArticleService.getNextPage(user)
+	getNextPage() {
+		let userLocalStorage = this._authenticationService.checkIfUserIsLoggedIn();
+		if (userLocalStorage !== null) {
+			this.user = JSON.parse(userLocalStorage).user;
+		} else {
+			this.user = null;
+		}
+		return this.simpleArticleService.getNextPage(this.user)
 			.subscribe(
 			articles => {
 				console.log(articles);
@@ -28,13 +34,6 @@ export class SimpleArticleComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		let userLocalStorage = this._authenticationService.checkIfUserIsLoggedIn();
-		if (userLocalStorage !== null) {
-			this.user = JSON.parse(userLocalStorage).user;
-		} else {
-			this.user = null;
-		}
-
-		this.getNextPage(this.user);
+		this.getNextPage();
 	}
 }
