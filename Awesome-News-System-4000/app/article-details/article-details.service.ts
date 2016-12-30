@@ -29,18 +29,22 @@ export class ArticleDetailsService {
                 return response.json();
             });
     }
-    addArticleToFavourites(id: string, user: any) {
+    addArticleToFavourites(id: string, user: any, originalId: string) {
         let headers = new Headers({
             'Content-Type': 'application/json'
         });
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.post(this._articleDetailsUrl + id, user, options)
+        return this._http
+            .post(this._articleDetailsUrl + id, JSON.stringify({
+                user: user,
+                originalId: originalId
+            }), options)
             .map((response: Response) => {
                 return response.json();
             });
     }
-    addCommentToArticle(comment: string, id: string, userStr: any) {
+    addCommentToArticle(comment: string, id: string, user: any) {
         let headers = new Headers({
             'Content-Type': 'application/json'
         });
@@ -49,9 +53,7 @@ export class ArticleDetailsService {
         return this._http
             .post(this._commentUrl, JSON.stringify({
                 commentContent: comment,
-                user: {
-                    username: JSON.parse(userStr).user.username
-                },
+                user: user,
                 articleId: id
             }), options)
             .map((response: Response) => {

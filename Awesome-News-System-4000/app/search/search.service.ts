@@ -15,7 +15,6 @@ export class SearchService {
         return this.http
             .get(this.simpleArticlesURL, { headers: this.headers, search: this.params })
             .map((res) => {
-                console.log(res.json().articles);
                 return res.json();
             });
     }
