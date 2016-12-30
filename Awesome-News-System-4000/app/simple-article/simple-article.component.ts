@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpleArtcileService } from './simple-artcile.service'
+import { SimpleArtcileService } from './simple-artcile.service';
+
+import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
 	templateUrl: './simple-article.component.html',
@@ -7,14 +9,17 @@ import { SimpleArtcileService } from './simple-artcile.service'
 })
 export class SimpleArticleComponent implements OnInit {
 	articles: any[];
-	constructor(private simpleArticleService: SimpleArtcileService) {
+	private user: any;
+	constructor(private simpleArticleService: SimpleArtcileService,
+		private _authenticationService: AuthenticationService) {
 		this.articles = [];
 	}
 
-	getNextPage() {
-		return this.simpleArticleService.getNextPage()
+	getNextPage(user: any) {
+		return this.simpleArticleService.getNextPage(user)
 			.subscribe(
 			articles => {
+				console.log(articles);
 				articles.forEach(element => {
 					this.articles.push(element);
 				});
@@ -23,6 +28,13 @@ export class SimpleArticleComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.getNextPage();
+		let userLocalStorage = this._authenticationService.checkIfUserIsLoggedIn();
+		if (userLocalStorage !== null) {
+			this.user = JSON.parse(userLocalStorage).user;
+		} else {
+			this.user = null;
+		}
+
+		this.getNextPage(this.user);
 	}
 }
