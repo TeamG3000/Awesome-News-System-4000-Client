@@ -33,6 +33,16 @@ export class UserService {
         return this.http.post(apiUrl + '/sources/select-media', body, this.setHeadersWithJSON());
     }
 
+    updateSettings(user: User) {
+        console.log(user.settings);
+        let body = JSON.stringify({
+            username: user.username,
+            settings: user.settings
+        });
+
+        return this.http.post(apiUrl + '/user/settings', body, this.setHeadersWithJSON());
+    }
+
     private createHeaderWithJwtToken() {
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
