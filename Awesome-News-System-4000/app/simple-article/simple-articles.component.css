@@ -1,0 +1,15 @@
+.container {
+    height: 80%;
+    width: 80%;
+    align-content: center;
+    overflow: hidden;
+}
+
+.container img {
+    height: auto;
+    width: 100%;
+}
+
+.container h2 {
+    width: 100%;
+}

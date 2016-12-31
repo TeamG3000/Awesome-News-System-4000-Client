@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { SimpleArtcileService } from './simple-artcile.service';
-
 import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
 	templateUrl: './simple-article.component.html',
-	providers: [SimpleArtcileService]
+	providers: [SimpleArtcileService],
+	styles: [String(require("./simple-articles.component.css"))]
 })
 export class SimpleArticleComponent implements OnInit {
 	articles: any[];
 	private user: any;
 	constructor(private simpleArticleService: SimpleArtcileService,
 		private _authenticationService: AuthenticationService) {
+
 		this.articles = [];
 	}
 
