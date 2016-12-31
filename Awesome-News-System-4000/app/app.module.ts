@@ -78,5 +78,6 @@ import { FavouritesFilterByTitle } from './core/pipes/favourites-filter.pipe';
 	],
 
 	bootstrap: [AppComponent]
+
 })
 export class AppModule { }
