@@ -4,8 +4,8 @@ import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
 	templateUrl: './simple-article.component.html',
-	providers: [SimpleArtcileService],
-	styles: [String(require("./simple-articles.component.css"))]
+	providers: [SimpleArtcileService]
+	
 })
 export class SimpleArticleComponent implements OnInit {
 	articles: any[];
