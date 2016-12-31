@@ -76,7 +76,9 @@ export class PrivateSoursesListComponent implements OnInit {
             this.selectedMediaList.forEach(media => {
                 for (let j = 0; j < this.sources.length; j++) {
                     if (this.sources[j].name === media) {
-                        updatedUser.selectedMedia.push(this.sources[j].id);
+                        updatedUser.selectedMedia.push({
+                            name: this.sources[j].id
+                        });
                     }
                 }
             });
