@@ -1,28 +1,23 @@
 <h1>Select Awesome News Sources</h1>
-<br>
-<hr>
-    <form name="sort" action="/sort">
-        <div class="form-group col-lg-4">
-            <label for="select-sort">Sort</label>
-            <select id="select-sort" class="form-control" (change)="onSortChange($event.target.value)" name="sort" [(ngModel)]="sort">
+<hr class="hr">
+<form id="sort-form" name="sort" action="/sort">
+    <div class="form-group col-lg-4">
+        <label for="select-sort">Sort</label>
+        <select id="select-sort" class="form-control" (change)="onSortChange($event.target.value)" name="sort" [(ngModel)]="sort">
                         <option><a href="#">country</a></option>
                         <option><a href="#">category</a></option>
                         <option><a href="#">name</a></option>            
                     </select>
-        </div>
+    </div>
 
-        <div class="form-group col-lg-4">
-            <label for="select-order">Order</label>
-            <select id="select-order" class="form-control" (change)="onOrderChange($event.target.value)" name="order" [(ngModel)]="order">
+    <div class="form-group col-lg-4">
+        <label for="select-order">Order</label>
+        <select id="select-order" class="form-control" (change)="onOrderChange($event.target.value)" name="order" [(ngModel)]="order">
                         <option><a href="#">Asc</a></option>
                         <option><a href="#">Desc</a></option>
                     </select>
-        </div>
-    </form>
-
-<br>
-<br>
-<hr>
+    </div>
+</form>
 
 <div class="list-group">
     <form action="/select-media" method="POST" (ngSubmit)="updateUserWithSelectedSources()">
@@ -42,7 +37,10 @@
         <br>
         <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
         </label>
-        <!--<a class="btn btn-success" [routerLink]="['/home']">Submit</a>-->
-        <button class="btn btn-primary btn-lr" (click)="showSuccess()">Submit</button>
+        <hr class="hr">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary btn-lr" (click)="showSuccess()">Submit</button>
+            <a class="btn btn-default" [routerLink]="['/home']">Check Latest News From Your Selected Sources</a>
+        </div>
     </form>
 </div>

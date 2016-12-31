@@ -25,7 +25,6 @@ export class AuthenticationService {
     }
 
     checkIfUserIsLoggedIn(){
-        //console.log(localStorage.getItem('currentUser'));
         return localStorage.getItem('currentUser');
     }
 

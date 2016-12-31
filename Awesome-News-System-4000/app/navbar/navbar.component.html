@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <a class="navbar-brand">{{pageTitle}}</a>
+        <a class="navbar-brand" [routerLink]="['/home']">{{pageTitle}}</a>
         <ul class="nav navbar-nav">
             <li>
                 <a [routerLink]="['/home']">Latest News</a>
@@ -10,6 +10,9 @@
             </li>
             <li *ngIf=isLogged()>
                 <a [routerLink]="['/select-media']"> Select Media</a>
+            </li>
+            <li *ngIf=isLogged()>
+                <a [routerLink]="['/favourite-articles']"> My Favourite Articles</a>
             </li>
             <li>
                 <a [routerLink]="['/about']">About</a>

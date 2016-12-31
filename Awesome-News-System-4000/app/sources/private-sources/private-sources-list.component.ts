@@ -9,13 +9,15 @@ import { Source } from '../../core/models/source-model';
 import { User } from '../../core/models/user-model';
 
 @Component({
-    templateUrl: 'private-sources-list.component.html'
+    templateUrl: 'private-sources-list.component.html',
+    styles: [String(require('./private-sources-list.component.css'))]
 })
 export class PrivateSoursesListComponent implements OnInit {
     private sources: Source[];
     private user: User;
     private selectedMediaItem: any;
     private selectedMediaList: any[] = [];
+    private successMessage: string = 'Yay! You have saved your prefered media sources successfully.'
 
     constructor(
         private sourcesService: SourcesService,
@@ -93,6 +95,6 @@ export class PrivateSoursesListComponent implements OnInit {
     }
 
     showSuccess() {
-        this.toastr.success('You are awesome!', 'Success!');
+        this.toastr.success(this.successMessage);
     }
 }

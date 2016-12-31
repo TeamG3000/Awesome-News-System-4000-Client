@@ -5,11 +5,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 @Component({
 	selector: 'ans-app',
 	templateUrl: './app.component.html',
-	styles: [
-		`ul {
-			list-style-type: none;
-		}`
-	]
+	styles: [String(require('../node_modules/ng2-toastr/bundles/ng2-toastr.min.css')), String(require('./../styles.css'))]
 })
 export class AppComponent {
 	pageTitle: String = 'Awesome News System';

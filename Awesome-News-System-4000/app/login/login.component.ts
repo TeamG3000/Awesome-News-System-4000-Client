@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading: boolean = false;
     returnUrl: string;
+    errorLoginMessage: string = 'Oops! Something went wrong. Please, check again your username and password';
+    successLoginMessage: string = 'Yay! You successfully logged to Awesome News 4000';
 
     constructor(
         private router: Router,
@@ -34,15 +36,26 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
             data => {
+                this.showMessageToUser();
                 this.router.navigate([this.returnUrl]);
             },
             error => {
-                //this.alertService.error(error);
+                this.showMessageToUser();
                 this.loading = false;
             });
     }
 
-//     showError() {
-//         this.toastr.error('This is not good!', 'Oops!');
-//       }
+    isLogged() {
+        return this.authenticationService.checkIfUserIsLoggedIn();
+    }
+
+    showMessageToUser() {        
+        if (this.isLogged()) {
+            this.toastr.success(this.successLoginMessage);
+
+        }
+        else {
+            this.toastr.error(this.errorLoginMessage);
+        }
+    }
 }
