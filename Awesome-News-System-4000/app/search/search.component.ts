@@ -8,12 +8,13 @@ import { SearchService } from './search.service'
 })
 export class SearchComponent implements OnInit {
 	searchedArticles: any[];
+	temp: any;
 	constructor(private searchService: SearchService) {
 		this.searchedArticles = [];
 	}
 
 	public search(searchPhares: string) {
-		return this.searchService.getSearchedArticles(searchPhares)
+		this.temp = this.searchService.getSearchedArticles(searchPhares)
 			.subscribe(
 			articles => {
 				this.searchedArticles = articles.articles;
@@ -24,4 +25,5 @@ export class SearchComponent implements OnInit {
 		this.search(localStorage.getItem("searchPhrase"));
 		localStorage.removeItem("searchPhrase");
 	}
+
 }
