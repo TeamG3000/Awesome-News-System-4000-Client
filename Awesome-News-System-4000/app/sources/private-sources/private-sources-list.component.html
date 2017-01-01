@@ -23,10 +23,10 @@
     <form action="/select-media" method="POST" (ngSubmit)="updateUserWithSelectedSources()">
         <label class="list-group-item" *ngFor="let source of sources | sort: [sort, order]">
             <label for="{{source.id}}">            
-                <img src={{source.urlsToLogos.small}} alt={{source.name}} width=150>
+                <img class="img-responsive" src={{source.urlsToLogos.small}} alt={{source.name}} width=150>
                 <!--<h4 class="list-group-item-heading">{{source.name}}</h4>-->
                 <p class="list-group-item-text">{{source.description}}</p>
-                <p>Add {{source.name}} to receive aweseome news</p>
+                <p>Add {{source.name}} to receive awesome news</p>
                 <input type="checkbox" name="sources" value="{{source.name}}" id="{{source.id}}" (change)="onClicked(source, $event)">
                 <br>
                 <div class="text-right">

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AppRoutingModule } from './core/routes/app-routing.module';
 
@@ -29,6 +29,7 @@ import { UserService } from '../app/core/services/user.service';
 import { SourcesService } from './sources/sources.service';
 import { SearchService } from './search/search.service';
 import { UserGuardService } from './core/guards/user-guard.service';
+import { ErrorHandler } from './core/errorHandler';
 
 import { CollapseDirective } from './core/directives/collapse.directive';
 import { CapitalizeFirstLetterPipe } from './core/pipes/capitalize-first-letter.pipe';
@@ -74,7 +75,8 @@ import { FavouritesFilterByTitle } from './core/pipes/favourites-filter.pipe';
 		UserService,
 		SearchService,
 		SourcesService,
-		UserGuardService
+		UserGuardService,
+		ErrorHandler
 	],
 
 	bootstrap: [AppComponent]

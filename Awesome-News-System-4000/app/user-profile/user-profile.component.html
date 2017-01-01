@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <div class="page-header">
     <h1>Hello, {{user.username}}!</h1>
-    <small>It's nice to have you on Awesome News</small>
+    <h2>It's nice to have you on Awesome News System 4000</h2>
     </div>
 </div>
 <div class="panel panel-default">
@@ -37,9 +37,11 @@
         <h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Your theme settings</h3>
     </div>
     <div class="panel-body" [collapse]="isCollapsedContentUserSettings">
-        <p>
-            Selected theme: {{user.settings.theme}}
-        </p>
-        <p><a class="btn btn-primary btn-lg" role="button" (click)="showSuccess()">Change Theme</a></p>
+        <ul *ngIf="user.settings">
+            <li class="user-profile-label" *ngFor="let setting of user.settings">
+                Your theme is: <span class="label label-info">{{setting.theme}}</span>
+            </li>
+        </ul>
+        <p><a class="btn btn-primary btn-lg" role="button" (click)="updateUserTheme()">Change Theme</a></p>
     </div>
 </div>

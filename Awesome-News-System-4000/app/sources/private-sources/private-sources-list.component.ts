@@ -25,7 +25,7 @@ export class PrivateSoursesListComponent implements OnInit {
         private authenthicationService: AuthenticationService,
         public toastr: ToastsManager
     ) {
-        this.user = JSON.parse(localStorage.getItem('currentUser')).user;
+        this.user = JSON.parse(this.authenthicationService.checkIfUserIsLoggedIn()).user;
     }
 
     @Output('onSortChange') sortedMediaSourcesEmitter: EventEmitter<string> = new EventEmitter<string>();
