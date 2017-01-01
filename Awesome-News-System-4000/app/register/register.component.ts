@@ -9,11 +9,15 @@ import { UserService } from '../core/services/user.service';
 	templateUrl: './register.component.html'
 })
 export class RegisterComponent {
-	pageTitle: String = 'Awesome News System';
-	model: any = {};
-	loading: boolean = false;
-	successfullRegistrationMessage: string = 'You registered successfully on Awesome News System 4000! Please, login';
-	errorRegistrationMessage: string = 'Ooops! Something went wrong. '
+	private pageTitle: String = 'Awesome News System';
+	private model: any = {};
+	private loading: boolean = false;
+	private successfullRegistrationMessage: string = 'You registered successfully on Awesome News System 4000! Please, login';
+	private errorRegistrationMessage: string = 'Ooops! Something went wrong.';
+    private minUsernameLength: number = 3;
+    private maxUsernameLength: number = 30;
+    private minPasswordLength: number = 5;
+    private maxPasswordLength: number = 30;
 
 	constructor(
 		private router: Router,

@@ -9,12 +9,16 @@ import { AuthenticationService } from '../core/services/authentication.service';
     templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-    pageTitle: String = 'Awesome News System';
-    model: any = {};
-    loading: boolean = false;
-    returnUrl: string;
-    errorLoginMessage: string = 'Oops! Something went wrong. Please, check again your username and password';
-    successLoginMessage: string = 'Yay! You successfully logged to Awesome News 4000';
+    private pageTitle: String = 'Awesome News System';
+    private model: any = {};
+    private loading: boolean = false;
+    private returnUrl: string;
+    private errorLoginMessage: string = 'Oops! Something went wrong. Please, check again your username and password';
+    private successLoginMessage: string = 'Yay! You successfully logged in Awesome News 4000';
+    private minUsernameLength: number = 3;
+    private maxUsernameLength: number = 30;
+    private minPasswordLength: number = 5;
+    private maxPasswordLength: number = 30;   
 
     constructor(
         private router: Router,
