@@ -5,9 +5,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ArticleDetailsService {
-    private _articleDetailsUrl = 'http://localhost:3001/article-details/';
+    private _articleDetailsUrl = 'http://awesomenews4000api.herokuapp.com/article-details/';
     private _ratingUrl = '/rating';
-    private _commentUrl = 'http://localhost:3001/comment';
+    private _commentUrl = 'http://awesomenews4000api.herokuapp.com/comment';
 
     constructor(private _http: Http) {
     }

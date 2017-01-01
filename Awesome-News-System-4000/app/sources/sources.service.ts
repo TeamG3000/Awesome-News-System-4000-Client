@@ -8,8 +8,8 @@ import {ErrorHandler} from '../core/errorHandler';
 @Injectable()
 export class SourcesService {
     private headers = new Headers({ 'requester': 'ajax' });
-    private sourcesURL = 'http://localhost:3001/sources/list';
-    private sourceDetailsUrl = 'http://localhost:3001/sources/source-details/';
+    private sourcesURL = 'http://awesomenews4000api.herokuapp.com/sources/list';
+    private sourceDetailsUrl = 'http://awesomenews4000api.herokuapp.com/sources/source-details/';
 
     constructor(
         private http: Http,

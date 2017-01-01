@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ErrorHandler } from './../errorHandler';
 
-const loginUrl = 'http://localhost:3001/user/login';
+const loginUrl = 'http://awesomenews4000api.herokuapp.com/user/login';
 
 @Injectable()
 export class AuthenticationService {

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user-model';
 import { ErrorHandler } from '../errorHandler';
 
-const apiUrl = 'http://localhost:3001';
+const apiUrl = 'http://awesomenews4000api.herokuapp.com';
 
 @Injectable()
 export class UserService {

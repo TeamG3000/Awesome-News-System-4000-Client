@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class SearchService {
     private headers = new Headers({ 'requester': 'ajax' });
-    private simpleArticlesURL = 'http://localhost:3001/search';
+    private simpleArticlesURL = 'http://awesomenews4000api.herokuapp.com/search';
     private params = new URLSearchParams();
 
     constructor(private http: Http) {}

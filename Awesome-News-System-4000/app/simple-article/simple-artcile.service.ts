@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SimpleArtcileService {
-    private simpleArticlesURL = 'http://localhost:3001/home';
+    private simpleArticlesURL = 'http://awesomenews4000api.herokuapp.com/home';
     private currentaPage: number;
 
     constructor(private _http: Http) {

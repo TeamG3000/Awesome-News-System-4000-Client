@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TopOneHundredService {
-private topArticlesURL='http://localhost:3001/topRatedArticles';
+private topArticlesURL='http://awesomenews4000api.herokuapp.com/topRatedArticles';
 
 constructor(private http:Http) {
 }
