@@ -58,7 +58,6 @@ import { FavouritesFilterByTitle } from './core/pipes/favourites-filter.pipe';
 		UserProfileComponent,
 		PublicSoursesListComponent,
 		PrivateSoursesListComponent,
-		ArticleDetailsComponent,
 		StarComponent,
 		TopOneHundredComponent,
 		SourceDetailsComponent,
