@@ -55,8 +55,21 @@ footer {
     width: 100%;
 }
 
+.container p {
+    width: 100%;
+}
+
+.container .label-img {
+    width: 50%;
+}
+
 .article-info {
     text-align: center;
+}
+
+.source-container {
+    display: block;
+    width: 50%;
 }
 
 @media (max-height:800px) {
