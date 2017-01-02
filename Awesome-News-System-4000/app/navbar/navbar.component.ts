@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../core/services/authentication.service';
-import {SearchComponent} from '../search/search.component';
-import {Router}from '@angular/router'
+import { SearchComponent } from '../search/search.component';
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'navbar',
@@ -15,10 +15,10 @@ export class NavbarComponent {
     constructor(
         private authenticationService: AuthenticationService,
         private searchComponent: SearchComponent,
-        private router :Router) {
+        private router: Router) {
 
-        this.searchPhrase='';
-     }
+        this.searchPhrase = '';
+    }
 
     public isLogged() {
         return this.authenticationService.checkIfUserIsLoggedIn();
@@ -29,13 +29,12 @@ export class NavbarComponent {
         this.userName = user.username;
         return this.userName;
     }
-    private search(){
+    private search() {
         console.log(this.searchPhrase);
         localStorage.setItem("searchPhrase", this.searchPhrase);
-       //this.searchComponent.search(this.searchPhrase);
-       //this.searchPhrase='';
+        this.searchPhrase = '';
     }
-    private onSubmit(){
+    private onSubmit() {
         this.router.navigateByUrl('/search');
     }
 }

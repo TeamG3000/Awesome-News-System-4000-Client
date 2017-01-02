@@ -21,23 +21,21 @@
 
 <div class="list-group">
     <form action="/select-media" method="POST" (ngSubmit)="updateUserWithSelectedSources()">
-        <label class="list-group-item" *ngFor="let source of sources | sort: [sort, order]">
+        <label class="list-group-item source-container source-container-main" *ngFor="let source of sources | sort: [sort, order]">
             <label for="{{source.id}}" class="source-container">
-                <div class="container">             
-                    <img class="label-img" src={{source.urlsToLogos.small}} alt={{source.name}} width=150>
+                <div class="panel source-container">             
+                    <img class="label-img img-fluid" src={{source.urlsToLogos.small}} alt={{source.name}}>
                     <p class="list-group-item-text">{{source.description}}</p>
+                    <br>
                     <p>Add {{source.name}} to receive awesome news</p>
                     <input type="checkbox" name="sources" value="{{source.name}}" id="{{source.id}}" (change)="onClicked(source, $event)">
-                    <br>
                     <div class="text-right">
                         <span class="label label-default">{{source.category}}</span>
                         <span class="label label-default">{{source.country}}</span>
                     </div>
-                    <br>
                     <a [routerLink]="['/source-details', source.id]">Read more about {{source.name}}</a>
                 </div>
             </label>
-
         </label>
         <hr class="hr">
         <div class="col-md-12 text-center">

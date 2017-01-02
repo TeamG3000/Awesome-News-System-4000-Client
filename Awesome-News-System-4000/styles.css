@@ -1,14 +1,9 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
 html,
 body {
     margin: 0;
 }
-
-
-/*body {
-  background-color: #FDF3E7;
-  color: #3B3738;
-}*/
 
 .center-block {
     margin-right: auto;
@@ -34,11 +29,6 @@ body {
     border-radius: 20px;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-}
-
 .container {
     height: 80%;
     width: 80%;
@@ -46,7 +36,7 @@ footer {
     overflow: hidden;
 }
 
-.container img {
+.simple-article-img {
     height: auto;
     width: 100%;
 }
@@ -59,21 +49,11 @@ footer {
     width: 100%;
 }
 
-.container .label-img {
-    width: 50%;
-}
-
 .article-info {
     text-align: center;
 }
 
-.source-container {
-    display: block;
-    width: 50%;
-}
-
-@media (max-height:800px) {
-    footer {
-        position: static;
-    }
+footer {
+    position: static;
+    bottom: 0;
 }
