@@ -19,7 +19,6 @@ export class NavbarComponent {
         private authenticationService: AuthenticationService,
         private searchComponent: SearchComponent,
         private router: Router) {
-
         this.searchPhrase = '';
     }
 
@@ -33,7 +32,6 @@ export class NavbarComponent {
         return this.userName;
     }
     private search() {
-        console.log(this.searchPhrase);
         localStorage.setItem("searchPhrase", this.searchPhrase);
         this.searchPhrase = '';
     }

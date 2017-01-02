@@ -1,3 +1,5 @@
+<p>Showing results for "{{phrase}}"</p>
+<p *ngIf="isEmpty">No articles</p>
 <div *ngFor="let article of searchedArticles">
     <div class="panel panel-default">
         <div class="panel-body">

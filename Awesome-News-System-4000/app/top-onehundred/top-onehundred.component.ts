@@ -18,9 +18,8 @@ export class TopOneHundredComponent implements OnInit {
                 this.topArticles=articles;
             });
     }
+    
     ngOnInit() {
         this.getTopArticles();
     }
-
-
 }

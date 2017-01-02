@@ -8,7 +8,7 @@ import { AuthenticationService } from '../core/services/authentication.service';
 	
 })
 export class SimpleArticleComponent implements OnInit {
-	articles: any[];
+	private articles: any[];
 	private user: any;
 	constructor(private simpleArticleService: SimpleArtcileService,
 		private _authenticationService: AuthenticationService) {
@@ -26,7 +26,6 @@ export class SimpleArticleComponent implements OnInit {
 		return this.simpleArticleService.getNextPage(this.user)
 			.subscribe(
 			articles => {
-				console.log(articles);
 				articles.forEach(element => {
 					this.articles.push(element);
 				});

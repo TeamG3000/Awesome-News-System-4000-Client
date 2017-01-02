@@ -7,17 +7,20 @@ import { SearchService } from './search.service'
 	templateUrl: './search.component.html',
 })
 export class SearchComponent implements OnInit {
-	searchedArticles: any[];
-	temp: any;
+	private searchedArticles: any[];
+	private phrase: string;
+	private isEmpty: boolean;
 	constructor(private searchService: SearchService) {
 		this.searchedArticles = [];
 	}
 
 	public search(searchPhares: string) {
-		this.temp = this.searchService.getSearchedArticles(searchPhares)
+		this.phrase = searchPhares;
+		this.searchService.getSearchedArticles(searchPhares)
 			.subscribe(
 			articles => {
 				this.searchedArticles = articles.articles;
+				this.isEmpty = this.searchedArticles.length === 0;
 			},
 			err => console.error(err));
 	}
