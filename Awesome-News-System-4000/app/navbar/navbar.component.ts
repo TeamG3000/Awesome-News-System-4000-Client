@@ -6,12 +6,15 @@ import { Router } from '@angular/router'
 @Component({
     selector: 'navbar',
     templateUrl: 'navbar.component.html',
-    providers: [SearchComponent]
+    providers: [SearchComponent],
+    styles:[String(require('./navbar.component.css'))]
 })
 export class NavbarComponent {
     private pageTitle: string = 'Awesome News System';
     public userName: string;
     private searchPhrase: string
+    private isCollapsed: boolean = true;
+
     constructor(
         private authenticationService: AuthenticationService,
         private searchComponent: SearchComponent,
