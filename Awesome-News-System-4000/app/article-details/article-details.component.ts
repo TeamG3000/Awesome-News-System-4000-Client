@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -11,6 +11,29 @@ import { AuthenticationService } from '../core/services/authentication.service';
     templateUrl: './article-details.component.html',
     providers: [
         ArticleDetailsService
+    ],
+    animations: [
+        trigger('ratingState', [
+            state('in', style({ transform: 'translateX(0)' })),
+            transition('void => *', [
+                style({ transform: 'translateX(-100%)' }),
+                animate(525)
+            ])
+        ]),
+        trigger('favouritesState', [
+            state('in', style({ transform: 'translateY(0)' })),
+            transition('void => *', [
+                style({ transform: 'translateY(-100%)' }),
+                animate(525)
+            ])
+        ]),
+        trigger('commentState', [
+            state('in', style({ transform: 'translateX(0)' })),
+            transition('void => *', [
+                style({ transform: 'translateX(-100%)' }),
+                animate(525)
+            ])
+        ]),
     ]
 })
 export class ArticleDetailsComponent implements OnInit {

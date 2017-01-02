@@ -33,17 +33,17 @@
                 <option>4</option>
                 <option>5</option>
             </select>
-            <button class="btn btn-success" type="submit" (click)="onSubmitRating()">Add Rating</button>
+            <button class="btn btn-success" type="submit" [@ratingState]="ratingState" (click)="onSubmitRating()">Add Rating</button>
         </div>
     </div>
     <div *ngIf="userExists" class="panel col-lg-6 content">
         <div class="col-lg-6">
-            <button class="btn btn-success" type="submit" (click)="onAddToFavourites()">Add To Favourites</button>
+            <button class="btn btn-success" type="submit" [@favouritesState]="favouritesState" (click)="onAddToFavourites()">Add To Favourites</button>
         </div>
     </div>
     <div *ngIf="userExists" class="panel panel-default col-lg-12 content">
         <textarea class="form-control" [(ngModel)]="articleCommentToAdd"></textarea>
-        <button class="btn btn-success" type="submit" (click)="onAddCommentToArticle()">Add Comment</button>
+        <button class="btn btn-success" type="submit" [@commentState]="commentState" (click)="onAddCommentToArticle()">Add Comment</button>
     </div>
     <div class="panel col-lg-12 content">
         <h3>Comments</h3>
